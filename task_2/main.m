@@ -10,19 +10,25 @@ data = load("task_2_data.txt");
 x = data(:,1);
 y = data(:,2);
 n= numel(x);
-h = 0.5;
-vel = velocity(y,n,5)
-acc = acceleration(y,n,5)
+h = x(2)-x(1);
+vel = velocity(y,n,h)
+acc = acceleration(y,n,h)
 
-subplot(1,2,1)
+subplot(1,3,1)
+plot(x,y,'bo-')
+xlabel('time(s)')
+ylabel('Position(m)')
+title('Position vs Time graph')
+
+subplot(1,3,2)
 plot(x,vel,'bo-')
 xlabel('time(s)')
 ylabel('velocity(m/s)')
-title('Velocity-Time graph')
+title('Velocity vs Time graph')
 
-subplot(1,2,2)
+subplot(1,3,3)
 plot(x,acc,'bo-')
 xlabel('time(s)')
 ylabel('acceleration(m/s^2)')
-title('Acceleration-Time graph')
+title('Acceleration vs Time graph')
 
