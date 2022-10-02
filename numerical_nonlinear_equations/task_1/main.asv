@@ -1,0 +1,20 @@
+clc
+
+clear
+
+close all
+
+v= 15;
+L =20;
+hq = 2.1;
+hr = 1.9;
+y = hr;
+g =9.8;
+x0 = 0;
+
+error_precision = 1;
+error_max = 0;
+max_iter =0;
+
+result = task_1_newton(x0,error_precision,error_max,iter_max,L,hq,g,v);
+disp(result)
