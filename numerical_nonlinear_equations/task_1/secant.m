@@ -1,7 +1,11 @@
-function [outputArg1,outputArg2] = secant(inputArg1,inputArg2)
-%SECANT Summary of this function goes here
-%   Detailed explanation goes here
-outputArg1 = inputArg1;
-outputArg2 = inputArg2;
-end
+function res = secant(func,left_endpoint,right_endpoint,error,precision,varargin)
 
+while error > precision
+    x2=(left_endpoint*func(right_endpoint)-right_endpoint*func(left_endpoint))/(func(right_endpoint)-func(left_endpoint));
+    left_endpoint=right_endpoint;        
+    right_endpoint=x2;
+    error=abs(right_endpoint-left_endpoint);
+    res=x2; 
+
+end
+end
