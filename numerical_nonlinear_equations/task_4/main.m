@@ -4,7 +4,10 @@ clear
 
 close all
 type root2d.m
-
+type newton.m;
+type estimate_initial.m;
+type secant.m;
+type bisection.m;
 
 func = @root2d;
 x0 = [0,0];
