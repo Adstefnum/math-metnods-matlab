@@ -1,11 +1,10 @@
-function res = secant(func,left_endpoint,right_endpoint,precision,varargin)
+function res = secant(func,x0,x1,precision,varargin)
 error = precision + 1;
 while error > precision
-    x2=(left_endpoint*func(right_endpoint)-right_endpoint*func(left_endpoint))/(func(right_endpoint)-func(left_endpoint));
-    left_endpoint=right_endpoint;        
-    right_endpoint=x2;
-    error=abs(right_endpoint-left_endpoint);
-    res=x2; 
-
+    x2=x1-(func(x1)*((x1-x0)/((func(x1)-func(x0)))));
+    x0=x1;        
+    x1=x2;
+    error=abs(func(x1)-func(x0));
+    res=x2;
 end
 end
