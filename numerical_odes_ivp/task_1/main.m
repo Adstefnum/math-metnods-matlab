@@ -4,6 +4,7 @@ clear
 
 close all
 
+type "methods/my_euler.m"
 func = @(x,y) (x^2)/y;
 
 me = my_euler(func,0,2,3,0.7,2.1)
