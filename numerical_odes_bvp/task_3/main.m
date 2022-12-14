@@ -16,7 +16,7 @@ for j=3:N;
  x(j) = 2*x(j-1) - x(j-2) + Deltat*Deltat*(-1.0*k/m)*x(j-1);
  v(j-1) = (x(j) - x(j-2))/ (2*Deltat);
 end
-
+[t(:),x(:)]
 v(N) = (x(N)-x(N-1))/Deltat; 
 figure; plot(t, x, 'ko:'); grid on; 
 xlabel('Time, sec. ')
