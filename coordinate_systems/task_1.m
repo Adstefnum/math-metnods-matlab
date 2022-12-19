@@ -5,22 +5,28 @@ h = 0.1; % time step size
 t = 0:h:10; % time range (t=0 to t=10 with step size h)
 
 n = length(t);
-x = zeros(2,n);
-v = zeros(2,n);
-a = zeros(2,n);
+x = zeros(n,2);
+v =  zeros(n,2);
+a =  zeros(n,2);
+m_x = zeros(n,2);
+m_v =  zeros(n,2);
+m_a =  zeros(n,2);
+
+figure; % create a new figure window
+hold on; % allow multiple plots to be overlaid on the same figure
 
 for i = 1:n % loop through the time range
-      x(:,i) = x0 + v0*t(i) + 0.5*a0*t(i)^2; % calculate position vector at time t(i)
-    v(:,i) = v0 + a0*t(i); % calculate velocity vector at time t(i)
-    a(:,i) = a0; % calculate acceleration vector at time t(i)
+      x(i,:) = x0 + v0*t(i) + 0.5*a0*t(i)^2; % calculate position vector at time t(i)
+    v(i,:) = v0 + a0*t(i); % calculate velocity vector at time t(i)
+    a(i,:) = a0; % calculate acceleration vector at time t(i)
 
 
-    m_x = norm(x); % modulus of position vector
-    m_v = norm(v); % modulus of velocity vector
-    m_a = norm(a); % modulus of acceleration vector
+    m_x(i) = norm(x(i,:)); % calculate modulus of position vector at time t(i)
+    m_v(i) = norm(v(i,:)); % calculate modulus of velocity vector at time t(i)
+    m_a(i) = norm(a(i,:)); % calculate modulus of acceleration vector at time t(i)
 
 
-    plot(x(1,:), x(2,:)); % plot the x and y components of the position vector
+    plot(x(i,1), x(i,2),'.'); % plot the x and y components of the position vector
 
     pause(0.1); % pause for 0.1 seconds before continuing the loop
     
@@ -28,4 +34,6 @@ for i = 1:n % loop through the time range
 
 
 end
+
+drawnow; % update the plot
 
